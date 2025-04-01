@@ -1,6 +1,14 @@
 export default defineNuxtRouteMiddleware(() => {
   const userIsLoggedIn = () => false;
   if (!userIsLoggedIn()) {
-    return navigateTo({ path: "/login" });
+    return navigateTo("/login");
   }
 });
+
+// const userIsLoggedIn = () => false;
+
+// onMounted(() => {
+//   if (!userIsLoggedIn()) {
+//     navigateTo("/login");
+//   }
+// });
