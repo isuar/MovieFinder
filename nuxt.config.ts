@@ -16,4 +16,8 @@ export default defineNuxtConfig({
   routeRules: {
     "/admin/**": { prerender: false },
   },
+  experimental: {
+    payloadExtraction: true,
+  },
+  ssr: false,
 });

@@ -1,7 +1,11 @@
-export default defineNuxtRouteMiddleware(() => {
+export default defineNuxtRouteMiddleware((to) => {
+  // Always skip this middleware during static generation/SSR
+  if (import.meta.server) return;
+
+  // Also skip if we're in a prerendering context
   try {
-    // Skip during static generation
-    if (import.meta.server) return;
+    const nuxtApp = useNuxtApp();
+    if (nuxtApp?.payload?.prerender === true) return;
 
     const userIsLoggedIn = () => false;
 
@@ -10,7 +14,8 @@ export default defineNuxtRouteMiddleware(() => {
     }
   } catch (error) {
     console.error("Middleware error:", error);
-    // Provide a fallback behavior
+    // Don't redirect in case of error during static generation
+    return;
   }
 });
 
