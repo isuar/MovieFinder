@@ -10,14 +10,10 @@ export default defineNuxtConfig({
     dirs: ["stores"],
   },
   nitro: {
-    debug: true,
     preset: "github-pages",
+    prerender: {
+      crawlLinks: false, // Disable link crawling for prerendering
+    },
   },
-  routeRules: {
-    "/admin/**": { prerender: false },
-  },
-  experimental: {
-    payloadExtraction: true,
-  },
-  ssr: false,
+  ssr: false, // Client-side rendering only
 });
