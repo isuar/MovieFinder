@@ -11,5 +11,9 @@ export default defineNuxtConfig({
   },
   nitro: {
     debug: true,
+    preset: "github-pages",
+  },
+  routeRules: {
+    "/admin/**": { prerender: false },
   },
 });

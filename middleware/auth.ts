@@ -1,11 +1,16 @@
 export default defineNuxtRouteMiddleware(() => {
-  // Skip this middleware during static generation/SSR
-  if (import.meta.server) return;
+  try {
+    // Skip during static generation
+    if (import.meta.server) return;
 
-  const userIsLoggedIn = () => false; // Your actual auth check logic
+    const userIsLoggedIn = () => false;
 
-  if (!userIsLoggedIn()) {
-    return navigateTo({ path: "/login" });
+    if (!userIsLoggedIn()) {
+      return navigateTo({ path: "/login" });
+    }
+  } catch (error) {
+    console.error("Middleware error:", error);
+    // Provide a fallback behavior
   }
 });
 
