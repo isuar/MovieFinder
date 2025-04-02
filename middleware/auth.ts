@@ -1,16 +1,12 @@
-export default defineNuxtRouteMiddleware((to) => {
-  // skip middleware on server
+export default defineNuxtRouteMiddleware(() => {
+  // Skip this middleware during static generation/SSR
   if (import.meta.server) return;
-  // skip middleware on client side entirely
-  if (import.meta.client) return;
-  // or only skip middleware on initial client load
-  const nuxtApp = useNuxtApp();
-  if (
-    import.meta.client &&
-    nuxtApp.isHydrating &&
-    nuxtApp.payload.serverRendered
-  )
-    return;
+
+  const userIsLoggedIn = () => false; // Your actual auth check logic
+
+  if (!userIsLoggedIn()) {
+    return navigateTo({ path: "/login" });
+  }
 });
 
 // const userIsLoggedIn = () => false;
