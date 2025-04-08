@@ -9,11 +9,17 @@ export default defineNuxtConfig({
   imports: {
     dirs: ["stores"],
   },
+
+  routeRules: {
+    "/spa": { ssr: false },
+    "/static": { static: true },
+    "/swr": { swr: true },
+  },
+
   nitro: {
     preset: "github-pages",
     prerender: {
       crawlLinks: false, // Disable link crawling for prerendering
     },
   },
-  ssr: false, // Client-side rendering only
 });

@@ -1,3 +1,5 @@
+export default defineNuxtRouteMiddleware(() => {});
+
 // export default defineNuxtRouteMiddleware(() => {
 //   const userIsLoggedIn = () => false;
 //   if (!userIsLoggedIn()) {

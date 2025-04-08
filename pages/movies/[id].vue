@@ -4,7 +4,7 @@ const route = useRoute();
 
 // throw new Error("Simulated server crash");
 
-const { data, error } = await useFetch(`http://www.omdbapi.com/?apikey=8e3f600b&i=${route.params.id}`,
+const { data, error } = await useFetch(`https://www.omdbapi.com/?apikey=8e3f600b&i=${route.params.id}`,
     {
         pick: ["Title", "Plot", "Year", "Error", "Poster"],
         key: `/movies/${route.params.id}`,
