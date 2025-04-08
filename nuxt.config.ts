@@ -16,10 +16,12 @@ export default defineNuxtConfig({
     "/swr": { swr: true },
   },
 
-  nitro: {
-    preset: "github-pages",
-    prerender: {
-      crawlLinks: false, // Disable link crawling for prerendering
-    },
-  },
+  // nitro: {
+  //   preset: "github-pages",
+  //   prerender: {
+  //     crawlLinks: false, // Disable link crawling for prerendering
+  //   },
+  // },
+
+  ssr: false,
 });
