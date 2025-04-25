@@ -10,7 +10,6 @@ const user = useUser();
                     <h1 class="text-xl font-bold text-indigo-600 dark:text-indigo-400">MovieFinder</h1>
                     <NuxtLink class="px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition" to="/">Home</NuxtLink>
                     <NuxtLink class="px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition" to="/movies">Movies</NuxtLink>
-                    <NuxtLink class="px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition" to="https://vueschool.io">Vue website</NuxtLink>
                 </div>
                 <div class="flex items-center space-x-4">
                     <DarkModeToggle />

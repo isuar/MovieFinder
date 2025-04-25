@@ -1,0 +1,16 @@
+# Global settings applied to the whole site
+[build]
+  publish = "dist"
+  command = "npm run generate"
+
+# Redirect rule for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Enable CORS headers for font files
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"

@@ -45,12 +45,9 @@ export default defineNuxtConfig({
     viewer: true,
   },
 
-  // Basic GitHub pages setup without prerendering
+  // Netlify deployment configuration
   nitro: {
-    preset: "github-pages",
-    prerender: {
-      routes: [],
-    },
+    preset: "netlify",
   },
 });
 
