@@ -45,9 +45,10 @@ export default defineNuxtConfig({
     viewer: true,
   },
 
-  // Netlify deployment configuration
+  // Static site generation for Netlify
   nitro: {
     preset: "netlify",
+    static: true
   },
 });
 
