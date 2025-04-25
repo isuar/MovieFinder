@@ -1,9 +1,9 @@
 [build]
-  command = "npx nuxi build"
-  publish = ".output/public"
+  command = "npm run netlify-build"
+  publish = "dist"
   
 [build.environment]
-  NITRO_PRESET = "netlify"
+  NODE_VERSION = "18"
 
 [[redirects]]
   from = "/*"
