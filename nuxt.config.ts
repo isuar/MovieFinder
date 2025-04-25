@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     dirs: ['stores'],
   },
 
-  // Force client-side rendering only
+  // Static site generation
   ssr: false,
 
   // Pinia configuration
@@ -17,10 +17,10 @@ export default defineNuxtConfig({
     autoImports: ['defineStore', 'acceptHMRUpdate'],
   },
 
-  // Minimal build configuration
+  // Build configuration
   app: {
     buildAssetsDir: "/_nuxt/",
-    baseURL: "./", // Use relative paths
+    baseURL: "/", // Changed from "./" to "/" for Netlify
     head: {
       title: 'MovieFinder - Discover Your Next Favorite Movie',
       meta: [
@@ -53,6 +53,9 @@ export default defineNuxtConfig({
   // Static site generation for Netlify
   nitro: {
     preset: "netlify",
-    static: true
+    prerender: {
+      crawlLinks: true,
+      routes: ['/']
+    }
   },
 });

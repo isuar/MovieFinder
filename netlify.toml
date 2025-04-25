@@ -1,7 +1,11 @@
 [build]
+  command = "npm run generate"
   publish = "dist"
-  command = "npm install && npm run generate"
+  
+[build.environment]
+  NODE_VERSION = "18"
 
+# For SPAs
 [[redirects]]
   from = "/*"
   to = "/index.html"
