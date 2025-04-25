@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     dirs: ['stores'],
   },
 
-  // Static site generation
+  // Force client-side rendering only
   ssr: false,
 
   // Pinia configuration
@@ -17,10 +17,8 @@ export default defineNuxtConfig({
     autoImports: ['defineStore', 'acceptHMRUpdate'],
   },
 
-  // Build configuration
+  // Minimal build configuration
   app: {
-    buildAssetsDir: "/_nuxt/",
-    baseURL: "/", // Changed from "./" to "/" for Netlify
     head: {
       title: 'MovieFinder - Discover Your Next Favorite Movie',
       meta: [
@@ -36,6 +34,7 @@ export default defineNuxtConfig({
     },
   },
 
+  // Remove any experimental features that might cause issues
   experimental: {
     payloadExtraction: false,
     renderJsonPayloads: false,
@@ -50,9 +49,8 @@ export default defineNuxtConfig({
     viewer: true,
   },
 
-  // Static site generation for Netlify
+  // Simplify Nitro config - let the NITRO_PRESET environment variable handle it
   nitro: {
-    preset: "netlify",
     prerender: {
       crawlLinks: true,
       routes: ['/']

@@ -1,11 +1,10 @@
 [build]
-  command = "npm run generate"
-  publish = "dist"
+  command = "npx nuxi build"
+  publish = ".output/public"
   
 [build.environment]
-  NODE_VERSION = "18"
+  NITRO_PRESET = "netlify"
 
-# For SPAs
 [[redirects]]
   from = "/*"
   to = "/index.html"
