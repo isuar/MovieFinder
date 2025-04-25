@@ -3,8 +3,8 @@ const props = defineProps({
     error: Object
 });
 
-const statusCode = computed(() => props.error.statusCode || 500);
-const statusMessage = computed(() => props.error.statusMessage || 'An error occurred');
+const statusCode = computed(() => props.error?.statusCode || 500);
+const statusMessage = computed(() => props.error?.statusMessage || 'An error occurred');
 
 // Clear the error and return to homepage
 function handleError() {
@@ -37,13 +37,9 @@ function handleError() {
                     Back to homepage
                 </button>
                 
-                <a 
-                    href="#" 
-                    @click.prevent="() => window.location.reload()"
-                    class="text-indigo-600 dark:text-indigo-400 hover:underline"
-                >
+                <NuxtLink to="/" class="text-indigo-600 dark:text-indigo-400 hover:underline">
                     Try again
-                </a>
+                </NuxtLink>
             </div>
         </div>
     </div>

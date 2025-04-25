@@ -1,19 +1,18 @@
-export const useUser = defineStore("user", {
-  state: () => {
-    return {
-      isLoggedIn: false,
-    };
-  },
+// User.ts
+import { defineStore } from 'pinia'
+
+export const useUser = defineStore('user', {
+  state: () => ({
+    isLoggedIn: false
+  }),
   getters: {},
   actions: {
     login() {
       // Simulate a login action
-      this.isLoggedIn = true;
-      useRouter().push("/");
-    },
-  },
-});
-
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useUser, import.meta.hot));
-}
+      this.isLoggedIn = true
+      
+      // Use navigateTo instead of direct router access
+      navigateTo('/')
+    }
+  }
+})

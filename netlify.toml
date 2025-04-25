@@ -1,9 +1,7 @@
-# Global settings applied to the whole site
 [build]
   publish = "dist"
-  command = "npm run generate"
+  command = "npm install && npm run generate"
 
-# Redirect rule for SPA routing
 [[redirects]]
   from = "/*"
   to = "/index.html"

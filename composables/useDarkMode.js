@@ -1,6 +1,5 @@
-import { defineStore } from 'pinia';
-
-export const useDarkMode = defineStore('darkMode', () => {
+// Simple composable for dark mode without using Pinia
+export default function() {
   // State
   const isDark = ref(false);
   
@@ -63,15 +62,12 @@ export const useDarkMode = defineStore('darkMode', () => {
     }
   }
   
+  // We don't call onMounted here anymore - we'll handle initialization in the plugin
+  
   return {
     isDark,
     toggleDarkMode,
     setDarkMode,
     initDarkMode
   };
-});
-
-// Make the store accessible via useDarkMode() composable
-export default function() {
-  return useDarkMode();
 }
