@@ -1,5 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  vite: {
+    build: {
+      modulePreload: {
+        polyfill: true
+      },
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          format: 'es',
+          entryFileNames: '_nuxt/[name].[hash].js',
+          chunkFileNames: '_nuxt/[name].[hash].js',
+          assetFileNames: '_nuxt/[name].[hash][extname]',
+        }
+      }
+    },
+    server: {
+      fs: {
+        strict: false
+      }
+    }
+  },
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
 
