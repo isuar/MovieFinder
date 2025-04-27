@@ -13,7 +13,9 @@ export default defineNuxtConfig({
   // Build configuration
   app: {
     buildAssetsDir: "/_nuxt/",
-    baseURL: "/",
+    // Make sure there's no trailing slash and no path prefix
+    baseURL: "",
+    cdnURL: ""
   },
 
   // Pinia configuration
@@ -27,8 +29,20 @@ export default defineNuxtConfig({
       dir: 'dist',
       publicDir: 'dist'
     },
+    // Ensure proper SPA behavior
     routeRules: {
       '/**': { spa: true },
+    },
+    // Add prerender config
+    prerender: {
+      crawlLinks: false,
+      routes: [
+        '/',
+      ],
+      ignore: [
+        // ignore all paths with a dot
+        /\./,
+      ],
     },
   },
 
