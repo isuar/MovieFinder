@@ -21,12 +21,10 @@ export default defineNuxtConfig({
     autoImports: ["defineStore", "acceptHMRUpdate"],
   },
 
-  // Generate static files in dist folder
   nitro: {
-    output: {
-      preset: "netlify",
-      dir: 'dist',
-      publicDir: 'dist'
+    preset: "netlify",
+    routeRules: {
+      '/**': { spa: true },
     },
   },
 
