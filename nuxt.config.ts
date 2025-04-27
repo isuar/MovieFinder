@@ -23,6 +23,10 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: "netlify",
+    output: {
+      dir: 'dist',
+      publicDir: 'dist'
+    },
     routeRules: {
       '/**': { spa: true },
     },
