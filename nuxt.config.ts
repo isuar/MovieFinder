@@ -1,12 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@pinia/nuxt',
-  ],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+
   imports: {
-    dirs: ['stores'],
+    dirs: ["stores"],
   },
 
   // Force client-side rendering only
@@ -20,15 +18,16 @@ export default defineNuxtConfig({
 
   // Pinia configuration
   pinia: {
-    autoImports: ['defineStore', 'acceptHMRUpdate'],
+    autoImports: ["defineStore", "acceptHMRUpdate"],
   },
 
   // Generate static files in dist folder
   nitro: {
     output: {
+      preset: "netlify",
       dir: 'dist',
       publicDir: 'dist'
-    }
+    },
   },
 
   // Disable any potentially problematic experimental features
@@ -39,10 +38,12 @@ export default defineNuxtConfig({
 
   // Tailwind CSS configuration
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js',
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.js",
     exposeConfig: false,
     injectPosition: 0,
     viewer: true,
-  }
+  },
+
+  compatibilityDate: "2025-04-25",
 });
