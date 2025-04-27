@@ -1,4 +1,7 @@
 <script setup>
+// Import the Tailwind CSS directly
+import '~/assets/css/tailwind.css';
+
 const user = useUser();
 </script>
 

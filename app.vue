@@ -1,6 +1,5 @@
 <script setup>
 useHead({
-
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - My Movie Site` : "My Movie Site";
   },
@@ -14,12 +13,18 @@ useHead({
       content: "Nuxt, Vue, Movies, App",
     },
   ],
+  link: [
+    {
+      rel: 'stylesheet',
+      href: '/styles.css'
+    }
+  ]
 });
 
 </script>
 
 <template>
-  <div>
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
